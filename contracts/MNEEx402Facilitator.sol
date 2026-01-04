@@ -7,6 +7,7 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 interface IAgentGuardVault {
     function executePayment(
@@ -326,35 +327,14 @@ contract MNEEx402Facilitator is ReentrancyGuard, Ownable {
         return MessageHashUtils.toTypedDataHash(DOMAIN_SEPARATOR, structHash);
     }
 
-    /// @notice Convert address to string
+    /// @notice Convert address to hex string
     function _addressToString(address addr) internal pure returns (string memory) {
-        bytes memory alphabet = "0123456789abcdef";
-        bytes memory str = new bytes(42);
-        str[0] = '0';
-        str[1] = 'x';
-        for (uint256 i = 0; i < 20; i++) {
-            str[2 + i * 2] = alphabet[uint8(uint160(addr) >> (8 * (19 - i)) >> 4)];
-            str[3 + i * 2] = alphabet[uint8(uint160(addr) >> (8 * (19 - i))) & 0x0f];
-        }
-        return string(str);
+        return Strings.toHexString(uint160(addr), 20);
     }
 
     /// @notice Convert uint256 to string
     function _uint256ToString(uint256 value) internal pure returns (string memory) {
-        if (value == 0) return "0";
-        uint256 temp = value;
-        uint256 digits;
-        while (temp != 0) {
-            digits++;
-            temp /= 10;
-        }
-        bytes memory buffer = new bytes(digits);
-        while (value != 0) {
-            digits -= 1;
-            buffer[digits] = bytes1(uint8(48 + (value % 10)));
-            value /= 10;
-        }
-        return string(buffer);
+        return Strings.toString(value);
     }
 
     // ============ View Functions ============
