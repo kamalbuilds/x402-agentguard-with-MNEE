@@ -128,13 +128,17 @@ MONTHLY_LIMIT=10000000000 \
 forge script scripts/RegisterAgent.s.sol --rpc-url $MAINNET_RPC_URL --broadcast
 ```
 
-## Contract Addresses
+## Contract Addresses (Ethereum Mainnet)
 
-**MNEE Token**: `0x8ccedbAe4916b79da7F3F612EfB2EB93A2bFD6cF`
+| Contract | Address |
+|----------|---------|
+| **MNEE Token** | `0x8ccedbAe4916b79da7F3F612EfB2EB93A2bFD6cF` |
+| **AgentGuardVault** | `0x9415F22d4eAA120f34C7fE37377D60B8d59850Ad` |
+| **MNEEx402Facilitator** | `0xFaA31cF44d86C155af03F03C588A0cD6131cca23` |
 
-After deployment:
-- AgentGuardVault: (will be set after deployment)
-- MNEEx402Facilitator: (will be set after deployment)
+View on Etherscan:
+- [AgentGuardVault](https://etherscan.io/address/0x9415F22d4eAA120f34C7fE37377D60B8d59850Ad)
+- [MNEEx402Facilitator](https://etherscan.io/address/0xFaA31cF44d86C155af03F03C588A0cD6131cca23)
 
 ## Key Features
 
