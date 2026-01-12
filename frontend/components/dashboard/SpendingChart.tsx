@@ -67,7 +67,7 @@ export function SpendingChart({ payments }: SpendingChartProps) {
                   <XAxis dataKey="date" tick={{ fontSize: 12 }} />
                   <YAxis tick={{ fontSize: 12 }} />
                   <Tooltip
-                    formatter={(value: number) => [`${value.toFixed(2)} MNEE`, "Amount"]}
+                    formatter={(value) => [`${Number(value).toFixed(2)} MNEE`, "Amount"]}
                     labelFormatter={(label) => `Date: ${label}`}
                   />
                   <Area
@@ -93,7 +93,7 @@ export function SpendingChart({ payments }: SpendingChartProps) {
                   <XAxis dataKey="month" tick={{ fontSize: 12 }} />
                   <YAxis tick={{ fontSize: 12 }} />
                   <Tooltip
-                    formatter={(value: number) => [`${value.toFixed(2)} MNEE`, "Amount"]}
+                    formatter={(value) => [`${Number(value).toFixed(2)} MNEE`, "Amount"]}
                     labelFormatter={(label) => `Month: ${label}`}
                   />
                   <Bar
